@@ -112,7 +112,7 @@ def jd15_musictrack(mt={},fsorder=1,gamever=2020):
         header=struct.pack(">I",112)
     else:
         header=struct.pack(">I",1)
-    header+=struct.pack(">I",5514)#версия тпг
+    header+=struct.pack(">I",int((166*len(mt["COMPONENTS"][0]["trackData"]["structure"]["markers"])+166))#версия тпг
     header+=bytes.fromhex("1B857BCE0000006C000000000000000000000000000000000000000000000000000000000000000102883A7E000000A0000000900000006C")#нужное, я хз что это такое
     #биты
     beats=struct.pack(">I",len(mt["COMPONENTS"][0]["trackData"]["structure"]["markers"]))#количество битов
